@@ -1,11 +1,12 @@
-body{
-    background-color: #ff8465ff;
+*{
+    margin:0;
 }
 
 .jumbotron{
     position: absolute;
-    height: 500vh;
+    height: 200vh;
     background-color: #ff8465ff;
+    width:100vw;
 }
 
 
@@ -37,3 +38,27 @@ margin-left: -150px;
 * ::-webkit-scrollbar{
     display: none;
 }
+
+.list_div{
+    background-color: red ;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list{
+    position: fixed;
+    display: flex;
+    list-style:none;
+    flex-direction: row;
+    padding-right: 180px;
+    padding-top:25px;
+    justify-content: space-between;
+    
+    
+}   
+
+.list li{
+    display: flex;
+    padding:10px
+    
+  }

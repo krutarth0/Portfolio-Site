@@ -20,7 +20,17 @@ useEffect(() => {
         
 
         <div  className="jumbotron" >
-            <h1 
+         
+        <div className="list_div">
+            <ul className="list">
+                <li>option 1</li>
+                <li>option 2</li>
+            </ul>  
+        </div>
+      
+        
+        
+        <h1 
             className="brandname"
             style={{
                 
