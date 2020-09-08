@@ -1,0 +1,39 @@
+body{
+    background-color: #ff8465ff;
+}
+
+.jumbotron{
+    position: absolute;
+    height: 500vh;
+    background-color: #ff8465ff;
+}
+
+
+/* .jumbotron img{
+ position: absolute;
+ pointer-events: none;   
+ transform: scale(0.7);
+margin-left: -150px;
+
+} */
+
+.jumbotron h1{
+    position: absolute;
+    pointer-events: none;   
+    transform: scale(0.7);
+    /* background-color: #ff8465ff; */
+   }
+   
+.brandname{
+    /* position: relative; */
+    font-size: 200px;
+    margin-left:150px;
+    margin-top:80px;
+    color:white;
+    z-index: 1000;
+}
+
+
+* ::-webkit-scrollbar{
+    display: none;
+}

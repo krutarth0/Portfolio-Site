@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from "./containers/home"
 
 function App() {
   return (
     <div className="App">
-      hello world from karan
-      hello world from krutarth  </div>
+      <Home/>
+    </div>
   );
 }
 
