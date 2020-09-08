@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Authentication from './components/authentication/SignUp';
 function App() {
   return (
     <div className="App">
-      hello world from karan
-      hello world from krutarth  </div>
+
+      <Authentication>
+      </Authentication>
+      
+      </div>
+
+
   );
 }
 
