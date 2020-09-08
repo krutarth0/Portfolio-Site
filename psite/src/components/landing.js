@@ -24,7 +24,7 @@ useEffect(() => {
             className="brandname"
             style={{
                 
-                transform:`translate(${Yoffset*1.1}px,${Yoffset*1.1}px)`,
+                transform:`translate(${Yoffset*1.1}px,${Yoffset}px)`,
                 fontSize:`${ (200 - (Yoffset*0.9/1.5)) < 100 ? 100 :(200 - (Yoffset*0.9/1.5))  }px` }}
             
             >Pramerica</h1>
