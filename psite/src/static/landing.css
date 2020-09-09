@@ -85,11 +85,6 @@
 
 
 
-
-.about{
-    height: 100vh;
-    background-color: blue;
-}
 .Footer{
     /* height: 100vh; */
     display: flex;
@@ -147,5 +142,4 @@
     width: 100%;
     justify-content: space-between;
     color: black;
-
 }

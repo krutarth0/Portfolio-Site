@@ -70,13 +70,10 @@
                     </div>
 
                     
-                    </div>                    
+                    </div>  
+
+                    <Ourteam></Ourteam>
                     
-                    <Ourteam/>
-
-                    <div className="sampark">
-                            <ContactUS/>
-
                     <div className="Footer">
                             <div className="copyright-mark">
                                     Made by <span className="weighted"> Developers.</span> All rights reserved
@@ -124,10 +121,9 @@
                                     </div>
 
                             </div>
-
                     </div>
             </div>
 
-            </div>
+            
         )
     } }
