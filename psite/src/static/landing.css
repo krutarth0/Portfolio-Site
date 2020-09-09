@@ -84,7 +84,61 @@
 
 
 
-.about{
-    height: 100vh;
-    background-color: blue;
+.Footer{
+    /* height: 100vh; */
+    display: flex;
+    width: 90%;
+    margin: auto;
+    height: 8vh;
+    margin-bottom: 10px;
+    /* background-color: #2444e0; */
+    align-items: flex-end;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.copyright-mark{
+    color: black;
+    
+}
+
+.weighted{
+    font-weight: 800;
+    color:     #2444e0;
+}
+
+
+.logos_and_links{
+ display: flex;
+ flex-flow: column nowrap;
+ width: 20%;
+ align-items: flex-end;
+ 
+ /* background-color: blanchedalmond;    */
+}
+
+.logos_{
+    display: flex;
+    padding: 10px;
+    /* background-color: cadetblue;  */
+    justify-content: space-between;
+    width: 50%;
+    color: #2444e0;
+}
+
+.logos_ .fb{
+    width: 15px;
+}
+.twt{
+    width: 22px;
+}
+.ig{
+    width: 22px;
+}
+
+.links_{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    color: black;
 }
