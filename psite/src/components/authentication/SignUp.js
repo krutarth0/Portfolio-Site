@@ -31,11 +31,13 @@ const SignUp = () =>{
                     case "auth/invalid-email":
                         case "auth/user-disabled":
                             case "auth/user-not-found":
+                                console.log(error)
                                 setEmailError(error.message)
                                 
                                 break
                                 case "auth/wrong-password":
                                     setPasswordError(error.message);
+                                    console.log(error.message)
                 }
             })
 
@@ -48,11 +50,21 @@ const SignUp = () =>{
     const registerUser = () => {
     
         fire
-            .auth()
-            .createUserWithEmailAndPassword(email,password);
-
-        var user = fire.auth().currentUser;
-        console.log(user);
+        .auth()
+        .createUserWithEmailAndPassword(email,password)
+        .catch((error)=>{
+            switch(error.code){
+                case "auth/email-already-in-use":
+                    case "auth/invalid-email":
+                            console.log(error)
+                            setEmailError(error.message)
+                            
+                            break
+                            case "auth/weak-password":
+                                setPasswordError(error.message);
+                                console.log(error.message)
+            }
+        })
 
     }
 
@@ -62,24 +74,25 @@ const SignUp = () =>{
 
 
 
-    // const authListener = () =>{
+    const authListener = () =>{
 
-    //     fire.auth().onAuthStateChanged(user=>{
-    //         if(user){
-    //             setUserName(user);
-    //         }
-    //         else{
-    //             setUserName("");
-    //         }
-    //     })
+        fire.auth().onAuthStateChanged(user=>{
+            if(user){
+                setUserName(user);
+                console.log(user.email)
+            }
+            else{
+                setUserName("");
+            }
+        })
     
-    // }  
+    }  
 
 
-    // useEffect(() => {
-    //     authListener();
+    useEffect(() => {   
+        authListener();
        
-    // }, [])
+    }, [])
 
     return(
 
@@ -106,6 +119,8 @@ const SignUp = () =>{
                 <input type="email" placeholder="Email" value={email} onChange ={e => setUserEmail(e.target.value)}/>
                 <input type="password" placeholder="password" value={password} onChange ={e => setUserPassword(e.target.value)} />
                 <button onClick={login}>Submit</button>
+
+                { user!="" ? <button onClick={handleLogout}>logout</button> : ""}
             </div>  
 
         </div>
