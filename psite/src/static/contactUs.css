@@ -1,20 +1,10 @@
 
 .ContactUS{
   
-  background-color:rgb(128, 208, 233);
+  background-color:rgb(255, 255, 255);
  height: 100vh;
+ width: 100vw;
 
-}
-
-@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
-
-
-.head {
-  font-family: 'Dancing Script';
-  font-weight: 1000;
-  font-size: 100px;
-  color: rgb(2, 0, 0);
-  text-align: center;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Sigmar+One);

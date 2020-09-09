@@ -10,7 +10,7 @@ import Authentication from './components/authentication/SignUp';
 function App() {
   return (
     <div className="App">
-
+      
      <Home/>
        
     </div>

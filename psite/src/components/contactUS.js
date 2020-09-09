@@ -8,9 +8,6 @@ function ContactUS() {
     <div className= "ContactUS">
              
     <div className="container">
-        <div className="head">
-          Contact Us
-        </div>
         <div className="row input-container">
       
             <div className="styled-input wide">
@@ -19,17 +16,12 @@ function ContactUS() {
          
           </div>
           
-            <div className="styled-input">
+            <div className="styled-input wide">
               <input type="text" required />
               <label>Email</label> 
             
           </div>
       
-            <div className="styled-input">
-              <input type="text" required />
-              <label>Phone Number</label> 
-  
-          </div>
          
             <div className="styled-input wide">
               <textarea required defaultValue={""} />

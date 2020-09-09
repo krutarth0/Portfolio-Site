@@ -1,5 +1,6 @@
     import React ,{useEffect,useState} from 'react'
     import "../static/landing.css"
+    import ContactUS from "./contactUS"
 
     export default function Landing(props) {
 
@@ -68,8 +69,8 @@
 
                     
                     </div>                    
-                    <div className="about">
-                            dsf
+                    <div className="sampark">
+                            <ContactUS/>
                     </div>
             </div>
         )
