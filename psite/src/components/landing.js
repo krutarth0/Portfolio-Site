@@ -69,10 +69,6 @@
 
                     
                     </div>                    
-<<<<<<< HEAD
-                    <div className="sampark">
-                            <ContactUS/>
-=======
                     <div className="Footer">
                             <div className="copyright-mark">
                                     Made by <span className="weighted"> Developers.</span> All rights reserved
@@ -120,7 +116,6 @@
                                     </div>
 
                             </div>
->>>>>>> d241e3492bd0127833978650ace3b0cac9f9c836
                     </div>
             </div>
         )

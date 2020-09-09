@@ -84,11 +84,6 @@
 
 
 
-<<<<<<< HEAD
-.about{
-    /* height: 100vh; */
-    background-color: blue;
-=======
 .Footer{
     /* height: 100vh; */
     display: flex;
@@ -146,5 +141,4 @@
     width: 100%;
     justify-content: space-between;
     color: black;
->>>>>>> d241e3492bd0127833978650ace3b0cac9f9c836
 }
