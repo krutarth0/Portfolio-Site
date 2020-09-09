@@ -40,7 +40,7 @@ useEffect(() => {
             >Pramerica</h1>
             <img 
                 className="buildings"  
-                src={require("../static/images/onlybuildings31.png")} 
+                src={require("../static/images/onlybuildings311.png")} 
                 alt=""
                 style={{transform:`translateY(${-Yoffset*0.01}px)`}}
                 />
