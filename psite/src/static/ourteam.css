@@ -1,0 +1,38 @@
+
+.our-team{
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+    display: flex;
+    flex-flow: column nowrap;
+    
+}
+
+.member-card{   
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    padding-top: 25px;
+
+}
+
+
+
+.member-info{
+    display: flex;
+    flex-flow: column nowrap;
+    height:250px;
+    width:650px;
+    background-color: whitesmoke;
+    border-radius: 30px;
+}
+
+.name{
+    font-size: 25px;
+}
+
+.image{
+    height: 250px;
+    width: 250px;
+    border-radius: 25px;
+}
+

@@ -3,11 +3,12 @@
 }
 
 .jumbotron{
-    position: absolute;
-    height: 200vh;
-    background-image: linear-gradient(to top, white 20%, #f4f1ecff 80%);
-    /* background-color: #f4f1ecff; */
+    /* position: absolute; */
+    height: 100vh;
+    /* background-image: linear-gradient(to top, white 20%, #f4f1ecff 80%); */
+    background-color: black;
     width:100vw;
+
 }
 
 .brandname{
@@ -52,10 +53,11 @@
 
   .vision-container{
      display: flex;
-     justify-content: space-evenly;
+     /* justify-content: space-evenly; */
+     margin-top: 60vh;
      width: 90vw;
-     position: absolute; 
-     bottom: 70px; 
+     /* position: absolute;  */
+     /* bottom: 70px;  */
   }
 
   .vision-image{

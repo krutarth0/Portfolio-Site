@@ -1,5 +1,6 @@
 import React ,{useEffect,useState} from 'react'
 import "../static/landing.css"
+import Ourteam from './Ourteam';
 
 export default function Landing(props) {
 
@@ -17,10 +18,10 @@ useEffect(() => {
 
 {
     return (
-        
+    <div>
 
         <div  className="jumbotron" >
-         
+            {console.log(Yoffset)}
         <div className="list_div">
             <ul className="list">
                 <li>option 1</li>
@@ -34,7 +35,7 @@ useEffect(() => {
             className="brandname"
             style={{
                 
-                transform:`translate(${Yoffset*1.1}px,${Yoffset}px)`,
+                transform:`translate(${Yoffset<754 ? Yoffset*1.1 : 761}px,${Yoffset < 754? Yoffset : Yoffset-55 }px)`,
                 fontSize:`${ (200 - (Yoffset*0.9/1.5)) < 100 ? 100 :(200 - (Yoffset*0.9/1.5))  }px` }}
             
             >Pramerica</h1>
@@ -71,7 +72,10 @@ useEffect(() => {
    
 
                 
-
+                <Ourteam></Ourteam>
+        </div>
+        
+        
         </div>
     )
 } }
