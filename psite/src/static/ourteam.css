@@ -12,33 +12,49 @@
     /* background-color: green; */
     justify-content: center;
     align-items: center;
-    padding:25px;
+    /* padding-top:10px; */
     /* border:1px solid black */
 }
 
 .profile_photo{
-    
+    padding-top:5px;
+}
+
+.photo{
     height: 15vh;
     width:15vh;
     border-radius: 50%;
+    
+    transition : box-shadow 3s;
 }
 
-.profile_photo:hover{
-    box-shadow:   5px 5px 2px blue;
+.photo:hover{
+    box-shadow:   5px 5px 2px #282C35;
     transition: box-shadow 1s;
     height: 18vh;
     width:18vh;
 }
-.name{
-    font-size: 25px;
-    padding-bottom:70px;
+
+
+.profile_name{
+    padding-top:10px;
     
 }
 
-.info{
+.name{
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+.profile_info{
+    padding:15px;
+    /* align-content: center; */
     text-align: center;
-   padding:10px;
+}
+
+.info{
+  
    font-size:1.5rem;
-   letter-spacing: 2px;
-   text-align: justify;
+   letter-spacing: 1px;
+
 }
