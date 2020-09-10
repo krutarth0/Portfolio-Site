@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: row;
     /* background-color:blue ; */
-    height: 50vh;        
+    height: 50vh;  
+    padding-left:55px; 
+    padding-right: 55px;     
 }
 
 .member{
@@ -29,7 +31,7 @@
 }
 
 .photo:hover{
-    box-shadow:   5px 5px 2px #282C35;
+    box-shadow:   5px 5px 2px #282C35;  
     transition: box-shadow 1s;
     height: 18vh;
     width:18vh;
@@ -47,14 +49,40 @@
 }
 
 .profile_info{
-    padding:15px;
+    padding-top:15px;
+    padding-bottom: 15px;
     /* align-content: center; */
     text-align: center;
+    height:15vh;
+    width:20vw;
+    /* background-color: aquamarine; */
 }
 
 .info{
   
    font-size:1.5rem;
    letter-spacing: 1px;
+   /* background-color:black; */
+   
 
+}
+
+.social{
+    display: flex;
+    flex-flow:row nowrap;
+    
+
+}
+
+.member_fb{
+    width: 15px;
+    padding:3px;
+}
+.member_twt{
+    width: 22px;
+    padding:3px;
+}
+.member_ig{
+    width: 22px;
+    padding:3px;
 }

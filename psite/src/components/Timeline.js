@@ -13,11 +13,11 @@ export default function Timeline() {
 			<div className="events">
 				<ol>
 					<li><a href="#0" data-date="16/01/2014" className="selected">16 Jan</a></li>
-					<li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
+				{/*	<li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
 					<li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
 					<li><a href="#0" data-date="20/05/2014">20 May</a></li>
 					<li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
-					<li><a href="#0" data-date="30/08/2014">30 Aug</a></li>
+	<li><a href="#0" data-date="30/08/2014">30 Aug</a></li>*/}
 					<li><a href="#0" data-date="15/09/2014">15 Sep</a></li>
 					<li><a href="#0" data-date="01/11/2014">01 Nov</a></li>
 					<li><a href="#0" data-date="10/12/2014">10 Dec</a></li>
