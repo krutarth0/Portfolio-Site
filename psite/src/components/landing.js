@@ -73,6 +73,8 @@
                     </div>  
 
                     <Ourteam></Ourteam>
+
+                    <ContactUS></ContactUS>
                     
                     <div className="Footer">
                             <div className="copyright-mark">
