@@ -2,7 +2,7 @@
     import "../static/landing.css"
     import ContactUS from "./contactUS"
     import Ourteam from './Ourteam';
-    
+    import Timeline from './Timeline'
 
     export default function Landing(props) {
 
@@ -73,7 +73,7 @@
                     </div>  
 
                     <Ourteam></Ourteam>
-                    
+                    <Timeline/>
                     <div className="Footer">
                             <div className="copyright-mark">
                                     Made by <span className="weighted"> Developers.</span> All rights reserved
@@ -121,7 +121,10 @@
                                     </div>
 
                             </div>
+                            
+                    
                     </div>
+                    
             </div>
 
             
