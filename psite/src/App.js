@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Home from "./containers/home"
-
+import Home from "./containers/home";
+import Auth from './components/authentication/SignUp';
 
 
 import './App.css';
@@ -11,7 +11,10 @@ function App() {
   return (
     <div className="App">
       
-     <Home/>
+   {/*  <Home/>  */}
+
+    <Auth></Auth>
+
        
     </div>
   );

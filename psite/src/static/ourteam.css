@@ -31,8 +31,8 @@
 }
 
 .photo:hover{
-    box-shadow:   5px 5px 2px #282C35;  
-    transition: box-shadow 1s;
+    box-shadow:   5px 5px 10px #282C35;
+    transition: box-shadow 0.5s;
     height: 18vh;
     width:18vh;
 }

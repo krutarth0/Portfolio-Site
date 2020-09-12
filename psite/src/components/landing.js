@@ -73,13 +73,8 @@
                     </div>  
 
                     <Ourteam></Ourteam>
-<<<<<<< HEAD
-
-                    <ContactUS></ContactUS>
-                    
-=======
                     <Timeline/>
->>>>>>> 2fff6a79a1dd91edb2ff9b7655b74e06036ef407
+                    <ContactUS/>
                     <div className="Footer">
                             <div className="copyright-mark">
                                     Made by <span className="weighted"> Developers.</span> All rights reserved

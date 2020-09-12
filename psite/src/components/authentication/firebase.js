@@ -3,19 +3,20 @@ import 'firebase/auth';
 import 'firebase/firebase-firestore';
 
 
- var config = {
-    apiKey: "AIzaSyDbcIWWhFDV4-HPxLckPD_EETtb3OE9KJc",
-    authDomain: "portfolio-project-c0cfd.firebaseapp.com",
-    databaseURL: "https://portfolio-project-c0cfd.firebaseio.com",
-    projectId: "portfolio-project-c0cfd",
-    storageBucket: "portfolio-project-c0cfd.appspot.com",
-    messagingSenderId: "582617353489",
-    appId: "1:582617353489:web:92b75f00a3744f996e90b0",
-    measurementId: "G-PQTVQ681N6"
-  };
+var config = {
+  apiKey: "AIzaSyBF4WZLS62eG02wsqnZETh4p8q9rC4sTo8",
+  authDomain: "pramerica-6c061.firebaseapp.com",
+  databaseURL: "https://pramerica-6c061.firebaseio.com",
+  projectId: "pramerica-6c061",
+  storageBucket: "pramerica-6c061.appspot.com",
+  messagingSenderId: "467991754612",
+  appId: "1:467991754612:web:bef8ab79cfa9f7d0459e21"
+};
 
 
 const fire = firebase.initializeApp(config);
+
+
 
  
 
@@ -38,3 +39,5 @@ const fire = firebase.initializeApp(config);
 // }
 
 export default fire;
+
+
