@@ -1,14 +1,26 @@
 import React from 'react';
 import '../static/contactUS.css';
+import emailjs from 'emailjs-com';
 
 
+export default function ContactUS() {
 
-function ContactUS() {
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('696969', 'template_3xmjfxp', e.target, 'user_yB4FNUm4pdA21nHuyOUTQ')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
+  }
     return (
     <div className= "main">
 
       <div className="page-bg">
-        <form className="page">
+        <form className="page" onSubmit={sendEmail}>
           <label>
             Name::
             <div><input className="text-box"  type="text" name="name" required/></div>     
@@ -34,4 +46,3 @@ function ContactUS() {
     );
   }
   
-  export default ContactUS;

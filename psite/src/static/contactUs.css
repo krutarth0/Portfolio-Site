@@ -58,13 +58,12 @@
     margin: 10px 0;
     font-size: 20px;
 
-    box-sizing: border-box;
+
     height: 150px;
-    position: relative;
-    left: 0;
+
     outline: none;
-    border: 1px  #757575;
-    border-color: rgb(109, 109, 110);
+    border: 0px;
+
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     font-size: 16px;
@@ -85,15 +84,15 @@
 }
 
 .button:hover{
-    box-shadow:   5px 5px 10px #282C35;
+       box-shadow:   5px 5px 10px #687085;
     transition: box-shadow 0.5s;
 }
 
 .text-box:hover{
-    box-shadow:   5px 5px 10px #282C35;
+    box-shadow:   5px 5px 10px #687085;
     transition: box-shadow 0.5s;
 }
 .text-area:hover{
-    box-shadow:   5px 5px 10px #282C35;
+    box-shadow:   5px 5px 10px #687085;
     transition: box-shadow 0.5s;
 }
