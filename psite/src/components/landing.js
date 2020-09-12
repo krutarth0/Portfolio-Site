@@ -78,7 +78,10 @@
                     </div>  
 
                     <Ourteam></Ourteam>
+                    
                     <Timeline/>
+
+                    <ContactUS></ContactUS>
                     <div className="Footer">
                             <div className="copyright-mark">
                                     Made by <span className="weighted"> Developers.</span> All rights reserved
