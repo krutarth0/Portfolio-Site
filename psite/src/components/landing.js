@@ -32,9 +32,12 @@
                 <div className="list">
                     <SexyDropdown prop={"Resources"} links={[
                         {to:"Calander",name:"Calander"},
-                        {to:"Forum",name:"Forum"},
-                         {to:"Admin",name:"Admin"}
-                        // `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ? {to:"Admin",name:"Admin"} : " "`
+                        {to:"Forum",name:"Forum"}
+                        //  {to:"Admin",name:"Admin"}
+                        // `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ?  : " "`
+
+                        // `${localStorage.getItem("final_data") == null ? "" : `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ?  {to:"Admin",name:"Admin"} : " "` }`
+
                         ]}/>
                     <SexyButton link={"SignInup"} name={"Sign In/up"}/>
                 </div>  
