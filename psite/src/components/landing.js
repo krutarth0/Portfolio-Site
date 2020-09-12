@@ -3,7 +3,8 @@
     import ContactUS from "./contactUS"
     import Ourteam from './Ourteam';
     import Timeline from './Timeline'
-
+    import SexyButton from './Buttons/SexyButton'
+    import SexyDropdown from './Buttons/SexyDropdown'
     export default function Landing(props) {
 
     const [Yoffset, setYoffset] = useState(0);
@@ -28,10 +29,14 @@
 
 
             <div className="list_div">
-                <ul className="list">
-                    <li>option 1</li>
-                    <li>option 2</li>
-                </ul>  
+                <div className="list">
+                    <SexyDropdown prop={"Resources"} links={[
+                        {to:"Calander",name:"Calander"},
+                        {to:"Forum",name:"Forum"},
+                        {to:"Admin",name:"Admin"}
+                        ]}/>
+                    <SexyButton link={"SignInup"} name={"Sign In/up"}/>
+                </div>  
             </div>
         
             

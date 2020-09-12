@@ -1,0 +1,103 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Peta&display=swap');
+
+.admin-dashboard{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 40px;
+}
+.admin-heading{
+    background-color: aqua;
+    height: 10vh;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.admin-heading-tag{
+    
+    font-size: 30px;
+    font-family: 'Lexend Peta', sans-serif;
+}
+
+.firebase-ourstory{
+display: flex;
+flex-flow: row nowrap;
+/* background-color: burlywood; */
+height: 60vh;
+margin-bottom: 10px;
+
+/* box-shadow: 0px 0px 10px rgba(0,0,0,0.5); */
+}
+
+.firebase-timeline{
+display: flex;
+flex-flow: row nowrap;
+height: 60vh;
+/* background-color: darkorange; */
+}
+
+
+.admin-form{
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    flex-flow: column nowrap;
+    /* background-color: black; */
+}
+
+
+.current-data{
+    width: 50vw; 
+    height: 60vh;
+    box-shadow: inset 0px 0px 7px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    overflow-y: scroll;
+}
+.meet-the-team{
+    font-size: 35px;
+    
+}
+
+.our-story{
+    font-size: 35px;
+}
+
+.meet-the-team-form{
+    flex:1;
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px;
+}
+
+
+.our-story-form{
+    flex:1;
+    /* background-color: blue; */
+}
+
+.meet-the-team-actual-form{
+    flex: 1;
+    padding: 10px;
+    /* background-color: blue; */
+    
+}
+.preview{
+    flex: 1;
+    /* background-color:brown; */
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    }
+
+.submit-preview{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}

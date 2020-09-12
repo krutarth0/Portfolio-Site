@@ -37,13 +37,14 @@
     display: flex;
     list-style:none;
     flex-direction: row;
-    padding-right: 180px;
+    padding-right: 70px;
     padding-top:25px;
     justify-content: space-between;
+    z-index: 1000;
 }   
 
-.list li{
-    display: flex;
+.list div{
+    /* display: flex; */
     padding:10px
     
   }
