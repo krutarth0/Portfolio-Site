@@ -86,7 +86,7 @@ export default function CalanderPage() {
             <div className="side-bar">
                 
               <div className="calander-navigation">
-                  <SexyButton name={"Home"} link={"Home"} size={[5,5]}/>
+                  <SexyButton name={"Home"} link={"/"} size={[5,5]}/>
                   <SexyDropdown
                   prop={"Resources"} 
                   size={[7,5]} 
