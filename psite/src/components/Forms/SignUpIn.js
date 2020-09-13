@@ -20,34 +20,33 @@ export default function SignUpIn() {
         setPass(e.target.value)
     }
 
-    const getUser = () =>{
+    // const getUser = () =>{
   
-        // console.log("bc",uid);
         
-        let user = JSON.parse(localStorage.getItem('user'));
-        let local_id  = user.uid;
-        console.log("user",user);  
-        console.log(local_id);  
-        let db = projectFirestore.collection('member_collection').where('uid','==',local_id).get()
-                  .then(snapShot =>{
-                    if(snapShot.empty){
-                      console.log("no matching string")
-                      return;
-                    }       
+    //     let user = JSON.parse(localStorage.getItem("user"));
+    //     // let local_id  = user.uid;    
+    //     console.log("user",user);  
+    //     // console.log(local_id);  
+    //     let db = projectFirestore.collection('member_collection').where('uid','==',123).get()
+    //               .then(snapShot =>{
+    //                 if(snapShot.empty){
+    //                   console.log("no    matching string")
+    //                   return;
+    //                 }       
       
-                    console.log(snapShot);
-                    snapShot.forEach((doc)=>{
+    //                 console.log(snapShot);
+    //                 snapShot.forEach((doc)=>{
                       
-                      console.log(doc.id,'=>',doc.data());
-                      localStorage.setItem('final_data',JSON.stringify(doc.data()));
-                    })
+    //                   console.log(doc.id,'=>',doc.data());
+    //                   localStorage.setItem('final_data',JSON.stringify(doc.data()));
+    //                 })
                                   
-                  })
-                  .catch(err =>{
-                    console.log(err); 
-                  })
+    //               })
+    //               .catch(err =>{
+    //                 console.log(err); 
+    //               })
       
-      }
+    //   }
 
     const addMember = () => {
         auth().onAuthStateChanged((user)=>{
@@ -75,13 +74,14 @@ export default function SignUpIn() {
 
         auth().signInWithEmailAndPassword(email,pass).then(()=>{
             console.log("login Success")
+            // getUser();
             
         }).catch((error)=>{
             console.log(error);
         })
 
 
-        // getUser();
+        
     }
 
     const handleSignUp = (e) =>{
@@ -95,8 +95,10 @@ export default function SignUpIn() {
         }).catch((error)=>{
             console.log(error);
         })
-
+        
+        
         // getUser();
+        // console.log(localStorage.getItem("uid"));
 
     }
 

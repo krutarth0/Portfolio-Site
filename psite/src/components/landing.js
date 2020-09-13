@@ -32,14 +32,20 @@
                 <div className="list">
                     <SexyDropdown prop={"Resources"} links={[
                         {to:"Calander",name:"Calander"},
-                        {to:"Forum",name:"Forum"}
-                        //  {to:"Admin",name:"Admin"}
-                        // `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ?  : " "`
+                        {to:"Forum",name:"Forum"},
+                        
+                            // {${JSON.parse(localStorage.getItem("final_data")}==null) ? "" : {JSON.parse(localStorage.getItem("final_data").isAdmin==true) ? {to:"Admin",name:"Admin"} : ""  }}
+                        //  `${JSON.parse(localStorage.getItem("final_data")) == null ? "" : `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true ?  : "" }`}`
 
                         // `${localStorage.getItem("final_data") == null ? "" : `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ?  {to:"Admin",name:"Admin"} : " "` }`
-
+                        
                         ]}/>
-                    <SexyButton link={"SignInup"} name={"Sign In/up"}/>
+                    {/*<SexyButton link={"SignInup"} name={"Sign In/up"}/> */}
+                    
+                    { localStorage.getItem("user") == null ?  <SexyButton link={"SignInup"} name={"Sign In/up"}/> : <SexyButton link={"SignInup"} name={"Logout"} onClick={props.signOut}/>}
+                   {/* Hello {JSON.parse(localStorage.getItem("user")).email} `{JSON.parse(localStorage.getItem("user")).isAdmin ? "Hello admin" : "fuck you .! you are not my boss.!"}` */}
+
+
                 </div>  
             </div>
         

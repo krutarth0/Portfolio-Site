@@ -16,6 +16,34 @@ const  App = ()=> {
 
   const [user , setUser] = useState("")
 
+
+  const getUser = () =>{
+  
+        
+    let user = JSON.parse(localStorage.getItem("user"));
+    let local_id  = user.uid;    
+    console.log("user",user);  
+    console.log(local_id);  
+    projectFirestore.collection('member_collection').where('uid','==',local_id).get()
+              .then(snapShot =>{
+                if(snapShot.empty){
+                  console.log("no matching string")
+                  return;
+                }       
+  
+                console.log(snapShot);
+                snapShot.forEach((doc)=>{
+                  
+                  console.log(doc.id,'=>',doc.data());
+                  localStorage.setItem('final_data',JSON.stringify(doc.data()));
+                })
+                              
+              })
+              .catch(err =>{
+                console.log(err); 
+              })
+  
+  }
   
 
   const handleLogOut = () =>{
@@ -39,6 +67,7 @@ useEffect(()=>{
         setUser(user);
         localStorage.setItem("user", JSON.stringify(user));
         localStorage.setItem("uid",id);
+        getUser();
         
       }else{
         console.log("no user is logged in")
@@ -51,10 +80,10 @@ useEffect(()=>{
   return (
     <div className="App">
 
-    {user==="" ? "" : <button onClick={handleLogOut}>Logout</button> }
+    {/* {user==="" ? "" : <button onClick={handleLogOut}>Logout</button> } */}
       <Switch>
           <Route exact path="/">
-            <Home />
+            <Home signOut={handleLogOut} />
           </Route>
           <Route path="/Calander">
             <CalanderPage/>
