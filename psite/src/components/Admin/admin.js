@@ -2,6 +2,7 @@ import React from 'react'
 import "../../static/Admin/admin.css"
 import MeetTheTeamForm from "../Forms/AdminMeetTheTeamForm"
 import OurTeamMember from "../OurTeam/OurTeamMember"
+import SexyButton from '../Buttons/SexyButton'
 import useFirestore from "../../database/useFirestore"
 export default function Admin() {
     const { docs } = useFirestore('ourTeam');
@@ -10,6 +11,9 @@ export default function Admin() {
         <div className="admin-dashboard">
 
                 <div className="admin-heading">
+                    <div>
+                    <SexyButton link={"/"} name={"Home"}/>
+                    </div>
                         <span className="admin-heading-tag">
                                 Dashboard
                         </span>
@@ -30,14 +34,17 @@ export default function Admin() {
                             </div>
 
                             <div className="preview">
-                                     <div className="our-team">
-                                         <div className="all_member">
-                                         <OurTeamMember 
-                                             url={"https://pbs.twimg.com/profile_images/1286632616796598276/9EN_YQGY_400x400.jpg"}
-                                          name={"Donna Paulson "} 
-                                          quote={" I'm too busy being a badass and worrying about my hair."} />
-                                            </div>
-                                       </div>   
+                                         <div className="admin-all_member">
+                                            <OurTeamMember 
+                                                url={"https://pbs.twimg.com/profile_images/1286632616796598276/9EN_YQGY_400x400.jpg"}
+                                            name={"Donna Paulson "} 
+                                            quote={" I'm too busy being a badass and worrying about my hair."} 
+                                            fb={"#"}
+                                            twt={"#"}
+                                            ig={"#"}
+                                            />  
+                                    </div>
+                                        
                                        <div style={{textAlign:"center"}}>
                                            PREVIEW
                                        </div>
