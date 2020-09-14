@@ -3,7 +3,7 @@ import Home from "./containers/home"
 import CalanderPage from "./containers/calanderPage"
 import Admin from "./components/Admin/admin"
 import SignUpIn from "./components/Forms/SignUpIn";
-import {Link,Switch,Route} from 'react-router-dom'
+import {Link,Switch,Route,Redirect} from 'react-router-dom'
 import './App.css';
 import {auth} from './database/firebase_config';
 import {projectFirestore} from './database/firebase_config';
@@ -14,65 +14,61 @@ import {projectFirestore} from './database/firebase_config';
 
 const  App = ()=> {
 
-  const [user , setUser] = useState("")
+  const [isAuthenticated , setIsAuthenticated] = useState(localStorage.getItem('user') ? true : false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
-
-  const getUser = () =>{
+  // const getUser = () =>{
   
         
-    let user = JSON.parse(localStorage.getItem("user"));
-    let local_id  = user.uid;    
-    console.log("user",user);  
-    console.log(local_id);  
-    projectFirestore.collection('member_collection').where('uid','==',local_id).get()
-              .then(snapShot =>{
-                if(snapShot.empty){
-                  console.log("no matching string")
-                  return;
-                }       
+  //   let user = JSON.parse(localStorage.getItem("user"));
+  //   let local_id  = user.uid;    
+  //   console.log("user",user);  
+  //   console.log(local_id);  
+  //   projectFirestore.collection('member_collection').where('uid','==',local_id).get()
+  //             .then(snapShot =>{
+  //               if(snapShot.empty){
+  //                 console.log("no matching string")
+  //                 return;
+  //               }       
   
-                console.log(snapShot);
-                snapShot.forEach((doc)=>{
+  //               console.log(snapShot);
+  //               snapShot.forEach((doc)=>{
                   
-                  console.log(doc.id,'=>',doc.data());
-                  localStorage.setItem('final_data',JSON.stringify(doc.data()));
-                  localStorage.setItem('isAdmin',doc.data().isAdmin);
-                })
+  //                 console.log(doc.id,'=>',doc.data());
+  //                 localStorage.setItem('final_data',JSON.stringify(doc.data()));
+  //                 localStorage.setItem('isAdmin',doc.data().isAdmin);
+  //               })
                               
-              })
-              .catch(err =>{
-                console.log(err); 
-              })
+  //             })
+  //             .catch(err =>{
+  //               console.log(err); 
+  //             })
   
-  }
-  
+  // }
 
   const handleLogOut = () =>{
+      window.location.reload()
       auth().signOut();
-      localStorage.removeItem("uid");
+      localStorage.removeItem("isAdmin");
       localStorage.removeItem("user");
-      localStorage.removeItem("final_data");
-
+      // localStorage.removeItem("final_data");
   }
 
 useEffect(()=>{
   // getUser();  
-  let isAdmin = JSON.parse(localStorage.getItem('final_data'));
-  console.log("isAdmin",isAdmin);
+  // let isAdmin = JSON.parse(localStorage.getItem('final_data'));
+  // console.log("isAdmin",isAdmin);
   auth().onAuthStateChanged((user)=>{
-
       if(user){
         // console.log(user.email);
         // console.log(user.uid);
-        let id  = user.uid
-        setUser(user);
+        // let id  = user.uid
         localStorage.setItem("user", JSON.stringify(user));
-        localStorage.setItem("uid",id);
-        getUser();
+        // localStorage.setItem("uid",id);
+        // getUser();
+        setIsAuthenticated(true);
+        setIsAdmin(localStorage.getItem('isAdmin'))
         
-      }else{
-        console.log("no user is logged in")
-        setUser("");
         
       }
   })    
@@ -81,23 +77,25 @@ useEffect(()=>{
   return (
     <div className="App">
 
-    {/* {user==="" ? "" : <button onClick={handleLogOut}>Logout</button> } */}
+   
       <Switch>
+
           <Route exact path="/">
-            <Home signOut={handleLogOut} />
+            <Home signOut={handleLogOut} admin={isAdmin} />
           </Route>
+
           <Route path="/Calander">
             <CalanderPage/>
           </Route>
-          <Route path="/Admin">
-            <Admin/>
-          </Route>
-          
+
+         <Route path="/Admin">
+         {!isAuthenticated ? <Redirect to="/" /> : <Admin/>}
+          </Route> 
+
           <Route path="/SignInup">
-          
-            <SignUpIn/>
-          </Route>
-          
+          {isAuthenticated ? <Redirect to="/" /> : <SignUpIn/>}
+          </Route> 
+
       </Switch>
     </div>
   );

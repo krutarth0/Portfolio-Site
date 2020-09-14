@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react'
 import Form from 'react-bootstrap/Form'
 import SexyButton from "../Buttons/SexyButton"
-import useAuth from "../../database/useAuth"
 import {auth} from "../../database/firebase_config"
 import {projectFirestore} from '../../database/firebase_config';
+import {Redirect} from 'react-router-dom'
 import '../../static/authentication.css';
 
 export default function SignUpIn() {
@@ -21,89 +21,39 @@ export default function SignUpIn() {
         setPass(e.target.value)
     }
 
-    // const getUser = () =>{
-  
-        
-    //     let user = JSON.parse(localStorage.getItem("user"));
-    //     // let local_id  = user.uid;    
-    //     console.log("user",user);  
-    //     // console.log(local_id);  
-    //     let db = projectFirestore.collection('member_collection').where('uid','==',123).get()
-    //               .then(snapShot =>{
-    //                 if(snapShot.empty){
-    //                   console.log("no    matching string")
-    //                   return;
-    //                 }       
-      
-    //                 console.log(snapShot);
-    //                 snapShot.forEach((doc)=>{
-                      
-    //                   console.log(doc.id,'=>',doc.data());
-    //                   localStorage.setItem('final_data',JSON.stringify(doc.data()));
-    //                 })
-                                  
-    //               })
-    //               .catch(err =>{
-    //                 console.log(err); 
-    //               })
-      
-    //   }
-
-    const addMember = () => {
-        auth().onAuthStateChanged((user)=>{
-
-            if(user){
-            //   console.log(user.email);
-            //   console.log(user.uid);
-            //   localStorage.setItem("user", JSON.stringify(user));
-            let id = user.uid;
-            projectFirestore.collection("member_collection").add({
-                email:email,
-                uid:id,
-                isAdmin:false
-            })
-
-            }else{
-              console.log("ERROR")
-            }
-        })
-    }
-
-
     const handleLogin = (e) => {
-        e.preventDefault();
-
-        auth().signInWithEmailAndPassword(email,pass).then(()=>{
-            console.log("login Success")
-            // getUser();
+        auth().signInWithEmailAndPassword(email,pass).then((user)=>{
+            // console.log("login Success",user.user.email)
             
+            projectFirestore.collection('member_collection')
+            .where('uid','==',user.user.uid)
+            .get()
+            .then( (snap)=>
+            {
+                snap.forEach((doc)=>{
+                    localStorage.setItem('isAdmin',doc.data().isAdmin);
+                    localStorage.setItem("user", JSON.stringify(user.user));
+                  })
+            }
+            )
         }).catch((error)=>{
             console.log(error);
         })
-
-
-        
     }
 
     const handleSignUp = (e) =>{
-
-        e.preventDefault();
-
-        auth().createUserWithEmailAndPassword(email,pass).then(()=>{
-            console.log("success")
-            addMember();
-            
+        auth().createUserWithEmailAndPassword(email,pass).then((user)=>{
+            projectFirestore.collection("member_collection").add({
+                email:user.user.email,
+                uid:user.user.uid,
+                isAdmin:false
+            })
+            localStorage.setItem("user", JSON.stringify(user.user));
         }).catch((error)=>{
             console.log(error);
         })
-        
-        
-        // getUser();
-        // console.log(localStorage.getItem("uid"));
-
     }
 
-   
 
     return (
     <div className="signUp_main">
@@ -115,13 +65,13 @@ export default function SignUpIn() {
     <label className="signup_label">
         Email:
     </label>
-    <Form.Control className="signup_input" type="email" onChange={handleEmail} /><br/>
+    <Form.Control className="signup_input" type="email" size="lg" onChange={handleEmail} /><br/>
 
     <label className="signup_label">
         Password:
     </label>
     
-    <Form.Control className="signup_input" type="password"  onChange={handlePass} /> <br/>
+    <Form.Control className="signup_input" type="password" size="lg" onChange={handlePass} /> <br/>
     <div className="submit-preview">
     {
         hasAccount ?
