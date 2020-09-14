@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=M+PLUS+1p&family=Quicksand:wght@582&display=swap');
+
 *{
     margin:0;
 }
@@ -76,12 +78,16 @@
 .vision-text{
  display: flex;
  flex-flow: column nowrap;
- align-items: center;
+ color: black;
+ /* align-items: center; */
  /* background-color: chartreuse; */
 }
 
 .vision-text-heading{
     /* background-color: blueviolet; */
+    color: #2444e0;
+    font-size:2.5rem; 
+    font-family: 'Caveat', cursive;
 }
 
 .vision-text-data{
@@ -89,7 +95,14 @@
     font-size: 25px;
 }
 
+.vision-text-data-head{
+    font-size: 4.48rem;
+    font-family: 'Quicksand', sans-serif;
+}
 
+.vision-text-data-info{
+    font-family: 'M PLUS 1p', sans-serif;
+}
 
 .Footer{
     /* height: 100vh; */
