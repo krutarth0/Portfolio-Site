@@ -4,7 +4,7 @@ import Ourteam from '../components/Ourteam';
 export default function Home(props) {
     return (
         <div className="main">
-            <Landing signOut={props.signOut}/> 
+            <Landing signOut={props.signOut} admin={props.admin}/> 
             
         </div>
     )
