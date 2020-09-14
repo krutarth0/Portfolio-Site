@@ -10,6 +10,8 @@ export default function MeetTheTeamForm() {
     const [quote, setQuote] = useState(null);
     const [error, setError] = useState(null);
     const [Upload, setUpload] = useState(false)
+    const [Review, setReview] = useState(false)
+    const [Reload, setReload] = useState(false)
     const types = ['image/png', 'image/jpeg','image/jpg'];
 
     const handleChange = (e) => {
@@ -35,10 +37,14 @@ export default function MeetTheTeamForm() {
        };
  
 
-    const handleClick =(e)=>{
+    const handleClickSubmit =(e)=>{
+            
             if(name){if(quote){if(file){
                             // console.log("DONE!!");
+                            setReload(true)
+                            setReview(false)
                             setUpload(true)
+                            
                         }
                         else{
                             setError("please select a file!")
@@ -54,16 +60,41 @@ export default function MeetTheTeamForm() {
         
     }
 
+    const handleClickPreview =(e)=>{
+            
+        if(name){if(quote){if(file){
+                        // console.log("DONE!!");
+                        setReload(false)
+                        setUpload(false)
+                        setReview(true)
+                        
+                        
+                    }
+                    else{
+                        setError("please select a file!")
+                    }
+                }
+                else{
+                    setError("please enter a quote!")
+                }
+        }
+        else{
+            setError("Please select a name!")
+        }
+    
+}
+
     return (
         <Form>
             <Form.Control placeholder="Name" size="lg"  onChange={handleName}/><br/>
             <Form.Control as="textarea" rows="3" placeholder="Quote" size="lg"  onChange={handleQuote} /> <br/>
             <Form.File id="profile-image" label="Display Photo" onChange={handleChange}/><br/>
             { error && <div className="error">{ error }</div>}
-            { name && quote && file && Upload &&  <ProgressBar file={file} setFile={setFile} name={name} quote={quote} /> }
+            { name && quote && file && Upload &&  <ProgressBar file={file} setFile={setFile} name={name} quote={quote} reload={Reload} setReview={setReview}/> }
+            { name && quote && file && Review &&  <ProgressBar file={file} setFile={setFile} name={name} quote={quote} reload={Reload} setReview={setReview}/> }
             <div className="submit-preview">
-            <SexyButton name={"Submit"} onClick={handleClick} />
-            <SexyButton name={"Preview"} />   
+            <SexyButton name={"Submit"} onClick={handleClickSubmit} />
+            <SexyButton name={"Preview"}  onClick={handleClickPreview} />   
             </div> 
         </Form>
     )
