@@ -20,7 +20,7 @@ export default function OurTeamMember(props) {
         <div className="profile_info">
        
       <span className="info">
-            
+                
            {props.quote}
                        
             </span>

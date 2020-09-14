@@ -5,15 +5,30 @@ import useAuth from "../../database/useAuth"
 import {auth} from "../../database/firebase_config"
 import {projectFirestore} from '../../database/firebase_config';
 import '../../static/authentication.css';
+import {Link} from "react-router-dom";
 
 export default function SignUpIn() {
 
     
+
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
     const [hasAccount,setHasAccount] = useState(false);
-    
+
+    const [emailError , setEmailError] = useState("")
+    const [passwordError , setPasswordError] = useState("")
+
+    const clearInput =  () =>{
+        setEmail('');
+        setPass('');
+    }
+
+    const clearError = () =>{
+        setEmailError('');
+        setPasswordError('');
+    }   
+
     const handleEmail = (e) =>{ 
         setEmail(e.target.value)
     }   
@@ -73,12 +88,26 @@ export default function SignUpIn() {
     const handleLogin = (e) => {
         e.preventDefault();
 
+        clearInput();
+        clearError();   
+        
         auth().signInWithEmailAndPassword(email,pass).then(()=>{
             console.log("login Success")
             // getUser();
             
-        }).catch((error)=>{
-            console.log(error);
+        })
+        .catch((error)=>{
+            switch(error.code){
+                case "auth/invalid-email":
+                    case "auth/user-disabled":
+                        case "auth/user-not-found":
+                            console.log(error)
+                            setEmailError("Invalid Email.! Please Try again")
+                            break
+                            case "auth/wrong-password":
+                                setPasswordError("Incorrect Password.! Please Try again");
+                                console.log(error.message)
+            }
         })
 
 
@@ -94,7 +123,17 @@ export default function SignUpIn() {
             addMember();
             
         }).catch((error)=>{
-            console.log(error);
+            switch(error.code){
+                case "auth/email-already-in-use":
+                    setEmailError("Email is aready in use.Try other email address")
+                    break;
+                    case "auth/invalid-email":
+                            setEmailError("Invalid Email.")
+                            break
+                            case "auth/weak-password":
+                                setPasswordError("Password must be greater then 6 character");
+                                
+            }
         })
         
         
@@ -102,6 +141,8 @@ export default function SignUpIn() {
         // console.log(localStorage.getItem("uid"));
 
     }
+
+
 
    
 
@@ -111,7 +152,11 @@ export default function SignUpIn() {
     
 
     <Form className="signup_form">
-    <div> <span className="signup_label"> Welcome to </span> <br/> <span  className="company_title" >Pramerica</span> </div>
+    <div> <span className="signup_label"> Welcome to </span> <br/> 
+            <Link to = "/">
+            <span  className="company_title" >Pramerica</span>
+            </Link>
+            </div>
     <label className="signup_label">
         Email:
     </label>
@@ -122,6 +167,10 @@ export default function SignUpIn() {
     </label>
     
     <Form.Control className="signup_input" type="password"  onChange={handlePass} /> <br/>
+    
+    <span style={{color:"red"}}> {emailError} {passwordError} </span>
+
+    <Link to="/" style={{ color: 'inherit', textDecoration: 'inherit'}}>
     <div className="submit-preview">
     {
         hasAccount ?
@@ -134,9 +183,9 @@ export default function SignUpIn() {
         <SexyButton name={"signup"} onClick={handleSignUp} />
         <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }} > Have an account? <span className="option" style={{color:'blue' }}  onClick={()=>{setHasAccount((!hasAccount)) }}>Click Here </span> to login.!</p>
         </div>
-    }
-       
+    }       
     </div> 
+    </Link>
         </Form>
 
     </div>
