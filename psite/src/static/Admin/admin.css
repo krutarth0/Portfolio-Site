@@ -37,6 +37,7 @@ margin-bottom: 10px;
 display: flex;
 flex-flow: row nowrap;
 height: 60vh;
+
 /* background-color: darkorange; */
 }
 
@@ -53,20 +54,41 @@ height: 60vh;
 .current-data{
     width: 50vw; 
     height: 60vh;
-    box-shadow: inset 0px 0px 7px rgba(0,0,0,0.5);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 40px;
     overflow-y: scroll;
 }
+
 .meet-the-team{
     font-size: 35px;
     
 }
+.our-team-admin{
+    display: flex;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    padding: 30px;
+    
+}
+.our-team-admin .our-tem-admin-member {
+    margin-right:30px;
+}
+.our-team-admin::-webkit-scrollbar{
+    display: inline;
+background-color: white;
+border-radius: 20px;
+height: 10px;
+}
+.our-team-admin::-webkit-scrollbar-thumb{
+    display: inline;
+background-color: burlywood;
+border-radius: 20px;
+}
 
 .our-story{
     font-size: 35px;
+    
+    
 }
 
 .meet-the-team-form{
@@ -79,6 +101,7 @@ height: 60vh;
 
 .our-story-form{
     flex:1;
+    
     /* background-color: blue; */
 }
 

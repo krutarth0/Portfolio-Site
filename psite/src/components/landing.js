@@ -76,12 +76,11 @@
                         />
 
                     <div className="vision-text">
-                        <h1 className="vision-text-heading">Robust Vision for any start up</h1>
+                        <h1 className="vision-text-heading">Robust Vision for your startup</h1>
                         <span className="vision-text-data">
-                        "Neque porro quisquam est qui dolorem ipsum <br/>
-                        quia dolor sit amet, consectetur, adipisci velit..."<br/>
-                        " There is no one who loves pain itself, who seeks after <br/>
-                        it and wants to have it, simply because it is pain..."
+                        <span className="vision-text-data-head">Neque porro quisquam dolorem</span>  <br/><br/>
+                       <span className="vision-text-data-info">Quia dolor sit amet, consectetur, adipisci velit <br/>
+                        it and wants to have it, simply because it is pain...</span> 
                         </span>
     
                     </div>
