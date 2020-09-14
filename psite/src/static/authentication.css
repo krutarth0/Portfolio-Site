@@ -1,99 +1,53 @@
-.main{
-    display: block;
-    background-image: url("https://www.justis.com/wp-content/uploads/2020/02/Training-vector-800.png");
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: 900px;
-    height: 90vh;
-    width: 100%;
-   background-position-x: 550px;
-
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
+.signUp_main{
+    background-color: white;
+    display: flex;
+    flex-flow:column nowrap;
+    align-content: center;
 
 }
 
-.page-bg{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-    height: 90vh;
-    width: 100%;
+.signup_form{
 
-}
-@import url(https://fonts.googleapis.com/css?family=Ubuntu);
-.page{
-
-    font-weight: 1000;
-    font-size: 20px;
-    font-family: 'Ubuntu';
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: stretch;
-    margin-right: 400px;
-    margin-top: 80px;
-    width: 40vw;
-
+    height:50vh;
+    width:50vh;
+    margin-left:auto;   
+    margin-right: auto;
+    padding-top: 150px ;
     
 }
 
-.text-box{
-    width: 100%;
-    padding: 12px ;
-    margin: 10px 0;
-    font-size: 20px;
+.signup_input{
 
-    box-sizing: border-box;
-    height: 40px;
-    outline: none;
-    border: 1px  #757575;
-    border-color: rgb(109, 109, 110);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    font-size: 16px;
-}
-
-.text-area{
-    width: 100%;
-    padding: 12px ;
-    margin: 10px 0;
-    font-size: 20px;
-
-    box-sizing: border-box;
-    height: 150px;
-    position: relative;
-    left: 0;
-    outline: none;
-    border: 1px  #757575;
-    border-color: rgb(109, 109, 110);
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
-    font-size: 16px;
-
+    height: 35px;
+    border-radius: 5px;
 
 }
 
-.button{
-    font-family: 'Ubuntu';
-    margin: 20px auto;
-    display: block;
-    padding: 10px 30px;
-    border: 1px solid rgb(240, 0, 240);
-    border-radius: 100px;
-    background-color: rgb(240, 25, 143);
-    color: rgb(255, 250, 250);
-    font-size: 20px;
+.signup_input:hover{
+    box-shadow: 2px 2px 5px black;
 }
 
-.button:hover{
-    box-shadow:   5px 5px 10px #282C35;
-    transition: box-shadow 0.5s;
+.company_title{
+    font-size:55px;
+    color:blue;
+    font-family:'Cabin', sans-serif ;
+
 }
 
-.text-box:hover{
-    box-shadow:   5px 5px 10px #282C35;
-    transition: box-shadow 0.5s;
+.company_title:hover{
+    cursor: pointer;
+    text-shadow : 2px 2px black;
+    font-size:70px;
+    transition: font-size 2s;
+    
 }
-.text-area:hover{
-    box-shadow:   5px 5px 10px #282C35;
-    transition: box-shadow 0.5s;
+
+.signup_label{
+    font-family: 'Cabin', sans-serif;;
+}
+
+.option:hover{
+    cursor: pointer;
 }

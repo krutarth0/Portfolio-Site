@@ -8,7 +8,7 @@
     export default function Landing(props) {
 
     const [Yoffset, setYoffset] = useState(0);
-
+    const [isAdmin , setIsAdmin] = useState(localStorage.getItem("isAdmin"));
     var handleScroll = ()=> setYoffset(window.pageYOffset)
 
     useEffect(() => {
@@ -21,12 +21,12 @@
 
     {
         return (
-            
+
             
 
             <div  className="jumbotron" >
             {console.log(Yoffset)}
-
+            {console.log(isAdmin)}
 
             <div className="list_div">
                 <div className="list">
@@ -38,8 +38,9 @@
                         //  `${JSON.parse(localStorage.getItem("final_data")) == null ? "" : `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true ?  : "" }`}`
 
                         // `${localStorage.getItem("final_data") == null ? "" : `${JSON.parse(localStorage.getItem("final_data")).isAdmin==true} ?  {to:"Admin",name:"Admin"} : " "` }`
-                        
+                  
                         ]}/>
+                        
                     {/*<SexyButton link={"SignInup"} name={"Sign In/up"}/> */}
                     
                     { localStorage.getItem("user") == null ?  <SexyButton link={"SignInup"} name={"Sign In/up"}/> : <SexyButton link={"SignInup"} name={"Logout"} onClick={props.signOut}/>}

@@ -36,6 +36,7 @@ const  App = ()=> {
                   
                   console.log(doc.id,'=>',doc.data());
                   localStorage.setItem('final_data',JSON.stringify(doc.data()));
+                  localStorage.setItem('isAdmin',doc.data().isAdmin);
                 })
                               
               })

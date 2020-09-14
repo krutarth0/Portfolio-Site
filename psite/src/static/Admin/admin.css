@@ -11,7 +11,7 @@
     height: 10vh;
     padding: 15px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -92,7 +92,7 @@ height: 60vh;
     flex: 1;
     /* background-color:brown; */
     padding: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 10px;
     }
 
@@ -100,4 +100,12 @@ height: 60vh;
     display: flex;
     padding: 10px;
     justify-content: space-between;
+}
+
+.admin-all_member{
+    display: flex;
+    flex-direction: row;
+    /* background-color:blue ; */
+    height: 50vh;  
+   
 }
