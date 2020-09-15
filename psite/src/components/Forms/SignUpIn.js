@@ -14,7 +14,7 @@ export default function SignUpIn(props) {
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
-    const [hasAccount,setHasAccount] = useState(false);
+    const [hasAccount,setHasAccount] = useState(true);
 
     const [emailError , setEmailError] = useState("")
     const [passwordError , setPasswordError] = useState("")
@@ -61,13 +61,36 @@ export default function SignUpIn(props) {
 
             }
             )
-        }).catch((error)=>{
-            console.log(error);
+        })    
+        .catch((error)=>{
+            clearError();
+            switch(error.code){
+                case "auth/invalid-email":
+                    setEmailError("Invalid Email.!")
+                    break;
+                    case "auth/user-disabled":
+                        case "auth/user-not-found":
+                            setEmailError("User not found. Please check your email.")
+                            break
+                            case "auth/wrong-password":
+                                setPasswordError("Incorrect Passowrd. Please check your password.!");
+                                
+            }
         })
    
     }
 
+    const  changeOperation = () =>{
+        clearError();
+        clearInput();
+        setHasAccount((!hasAccount))
+        
+
+    }
+
     const handleSignUp = (e) =>{
+        clearInput();
+        clearError();
         auth().createUserWithEmailAndPassword(email,pass).then((user)=>{
             projectFirestore.collection("member_collection").add({
                 email:user.user.email,
@@ -76,6 +99,7 @@ export default function SignUpIn(props) {
             })
             localStorage.setItem("user", JSON.stringify(user.user));
         }).catch((error)=>{
+            clearError();
             switch(error.code){
                 case "auth/email-already-in-use":
                     setEmailError("Email is aready in use.Try other email address")
@@ -111,20 +135,30 @@ export default function SignUpIn(props) {
     <label className="signup_label">
         Password:
     </label>
-    
+        
     <Form.Control className="signup_input" type="password" size="lg" onChange={handlePass} /> <br/>
+        
+    <div style={{color:"red"}}>
+        {emailError} {passwordError}
+    </div>
+    
+        
     <div className="submit-preview">
     {
-        hasAccount ?
+        !hasAccount ?
+        
+        <div >
+        <SexyButton name={"Sign Up"} onClick={handleSignUp} />
+        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }} > Have an account? <span className="option" style={{color:'blue' }}  onClick={changeOperation}>Click Here </span> to login.!</p>
+        </div>
+
+        :
+
         <div> 
         <SexyButton name={"login"} onClick={handleLogin}/>
-        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"}}>Don't have an account?<span className="option" style={{color:'blue' }} onClick={()=>{setHasAccount((!hasAccount)) }}> click here </span> to signup</p>
+        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"}}>Don't have an account?<span className="option" style={{color:'blue' }}  onClick={changeOperation}> click Here </span> to signup.!</p>
         </div>
-        :
-        <div >
-        <SexyButton name={"signup"} onClick={handleSignUp} />
-        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }} > Have an account? <span className="option" style={{color:'blue' }}  onClick={()=>{setHasAccount((!hasAccount)) }}>Click Here </span> to login.!</p>
-        </div>
+        
     }       
     </div> 
     
