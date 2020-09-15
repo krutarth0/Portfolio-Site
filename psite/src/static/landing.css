@@ -29,13 +29,13 @@
 }
 
 .list_div{
-    background-color: red ;
+    /* background-color: red ; */
     display: flex;
     justify-content: flex-end;
 }
 
 .list{
-    position: fixed;
+    /* position: fixed;  */
     display: flex;
     list-style:none;
     flex-direction: row;

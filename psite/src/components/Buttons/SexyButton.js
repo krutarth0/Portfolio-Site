@@ -5,7 +5,7 @@ export default function SexyButton(props) {
       <div className="button-holder">
 
         {props.size ? 
-          <a href={props.link &&`/${props.link.split(" ").join("").split("/").join("")}`} 
+          <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
            class="sexy-button"
            onClick={props.onClick}
            style={{
@@ -13,14 +13,11 @@ export default function SexyButton(props) {
             height:`${props.size[1]}vh`}}
           >{props.name}</a>
         : 
-        <a href={props.link &&`/${props.link.split(" ").join("").split("/").join("")}`} 
+        <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
         class="sexy-button"
         onClick={props.onClick}
         >{props.name}</a>
-        
         }
-
-
       </div>
    
     )

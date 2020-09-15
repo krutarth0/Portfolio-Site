@@ -13,7 +13,7 @@ export default function SexyDropdown(props) {
         
         <div class="dropdown-content">
         
-        { props.links.map(object => <a href={`/${object.to}`}> {object.name} </a> ) } 
+        { props.links.map(object => <a href={`#/${object.to}`}> {object.name} </a> ) } 
 
         </div>
     </div>  

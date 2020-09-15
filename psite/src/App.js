@@ -61,15 +61,15 @@ const setADMIN = (data)=>{
             <Home signOut={handleLogOut} admin={isAdmin}/>
           </Route>
 
-          <Route path="/Calander">
+          <Route exact path="/Calander">
             <CalanderPage/>
           </Route>
 
-         <Route path="/Admin">
+         <Route exact path="/Admin/">
          {!isAuthenticated ? <Redirect to="/" /> : <Admin/>}
           </Route> 
 
-          <Route path="/SignInup">
+          <Route exact path="/SignInup/">
           {isAuthenticated ? <Redirect to="/" /> : <SignUpIn setIsAdmin={setADMIN}/>}
           </Route> 
 
