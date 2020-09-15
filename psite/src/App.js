@@ -1,6 +1,6 @@
 import React, { useEffect , useState} from 'react';
 import Home from "./containers/home"
-import CalanderPage from "./containers/calanderPage"
+import CalenderPage from "./containers/calenderPage"
 import Admin from "./components/Admin/admin"
 import SignUpIn from "./components/Forms/SignUpIn";
 import {Link,Switch,Route,Redirect} from 'react-router-dom'
@@ -61,8 +61,8 @@ const setADMIN = (data)=>{
             <Home signOut={handleLogOut} admin={isAdmin}/>
           </Route>
 
-          <Route exact path="/Calander">
-            <CalanderPage/>
+          <Route exact path="/Calender">
+            <CalenderPage/>
           </Route>
 
          <Route exact path="/Admin/">
