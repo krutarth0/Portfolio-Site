@@ -1,6 +1,6 @@
 .main{
     display: block;
-    background-image: url("https://www.justis.com/wp-content/uploads/2020/02/Training-vector-800.png");
+    background-image: url("https://www.beevoo.me/img/undraw/contact-us.svg");
     background-position: right;
     background-repeat: no-repeat;
     background-size: 900px;
@@ -41,14 +41,13 @@
     padding: 12px ;
     margin: 10px 0;
     font-size: 20px;
-
+    
     box-sizing: border-box;
     height: 40px;
     outline: none;
-    border: 1px  #757575;
-    border-color: rgb(109, 109, 110);
+    border: 0px;
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: transparent;
     font-size: 16px;
 }
 
@@ -65,7 +64,7 @@
     border: 0px;
 
     border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color:transparent;
     font-size: 16px;
 
 
