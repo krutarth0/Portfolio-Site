@@ -7,7 +7,7 @@ export default function SexyButton(props) {
         {props.size ? 
           <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
            class="sexy-button"
-           onClick={props.onClick}
+           onClick={()=>props.onClick()}
            style={{
             width:`${props.size[0]}vw`,
             height:`${props.size[1]}vh`}}
@@ -15,7 +15,7 @@ export default function SexyButton(props) {
         : 
         <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
         class="sexy-button"
-        onClick={props.onClick}
+        onClick={()=>props.onClick()}
         >{props.name}</a>
         }
       </div>

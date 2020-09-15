@@ -4,7 +4,7 @@ import { formatDate } from '@fullcalendar/react'
 import "../static/calanderPage.css"
 import SexyButton from "../components/Buttons/SexyButton"
 import SexyDropdown from "../components/Buttons/SexyDropdown"
-export default function CalenderPage() {
+export default function CalenderPage(props) {
 
     const [Events, setEvents] = useState([
       {
@@ -86,14 +86,15 @@ export default function CalenderPage() {
             <div className="side-bar">
                 
               <div className="calander-navigation">
-                  <SexyButton name={"Home"} link={"/"} size={[5,5]}/>
+                  <SexyButton name={"Home"} link={"/"} size={[5,5]} onClick={props.ReloadCallback}/>
                   <SexyDropdown
                   prop={"Resources"} 
                   size={[7,5]} 
                   links={[
                         {to:"Forum",name:"Forum"},
                         {to:"Admin",name:"Admin"}
-                        ]}/>
+                        ]}
+                />
               </div>
 
               <div className="event-list">
