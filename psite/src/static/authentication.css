@@ -32,6 +32,7 @@
 .company_title{
     font-size:55px;
     color:blue;
+    text-decoration:  none;
     font-family:'Cabin', sans-serif ;
 
 }
@@ -41,6 +42,7 @@
     text-shadow : 2px 2px black;
     font-size:70px;
     transition: font-size 2s;
+    text-decoration:  none;
     
 }
 
@@ -51,3 +53,5 @@
 .option:hover{
     cursor: pointer;
 }
+
+

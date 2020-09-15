@@ -5,15 +5,30 @@ import {auth} from "../../database/firebase_config"
 import {projectFirestore} from '../../database/firebase_config';
 import {Redirect} from 'react-router-dom'
 import '../../static/authentication.css';
+import {Link} from "react-router-dom";
 
 export default function SignUpIn(props) {
 
     
+
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
 
     const [hasAccount,setHasAccount] = useState(false);
-    
+
+    const [emailError , setEmailError] = useState("")
+    const [passwordError , setPasswordError] = useState("")
+
+    const clearInput =  () =>{
+        setEmail('');
+        setPass('');
+    }
+
+    const clearError = () =>{
+        setEmailError('');
+        setPasswordError('');
+    }   
+
     const handleEmail = (e) =>{ 
         setEmail(e.target.value)
     }   
@@ -61,7 +76,17 @@ export default function SignUpIn(props) {
             })
             localStorage.setItem("user", JSON.stringify(user.user));
         }).catch((error)=>{
-            console.log(error);
+            switch(error.code){
+                case "auth/email-already-in-use":
+                    setEmailError("Email is aready in use.Try other email address")
+                    break;
+                    case "auth/invalid-email":
+                            setEmailError("Invalid Email.")
+                            break
+                            case "auth/weak-password":
+                                setPasswordError("Password must be greater then 6 character");
+                                
+            }
         })
         // window.location.reload()
     }
@@ -73,7 +98,11 @@ export default function SignUpIn(props) {
     
 
     <Form className="signup_form">
-    <div> <span className="signup_label"> Welcome to </span> <br/> <span  className="company_title" >Pramerica</span> </div>
+    <div> <span className="signup_label"> Welcome to </span> <br/> 
+            <Link to = "/">
+            <span  className="company_title" >Pramerica</span>
+            </Link>
+            </div>
     <label className="signup_label">
         Email:
     </label>
@@ -96,9 +125,9 @@ export default function SignUpIn(props) {
         <SexyButton name={"signup"} onClick={handleSignUp} />
         <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }} > Have an account? <span className="option" style={{color:'blue' }}  onClick={()=>{setHasAccount((!hasAccount)) }}>Click Here </span> to login.!</p>
         </div>
-    }
-       
+    }       
     </div> 
+    
         </Form>
 
     </div>

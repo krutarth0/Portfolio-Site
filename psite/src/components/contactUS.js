@@ -1,5 +1,5 @@
 import React from 'react';
-import ContactUs from '../static/contactUS.css'
+import '../static/contactUS.css';
 import emailjs from 'emailjs-com';
 
 
@@ -23,15 +23,15 @@ export default function ContactUS() {
         <form className="page" onSubmit={sendEmail}>
           <label>
             Name::
-            <div><input className="text-box"  type="text" name="name" required/></div>     
+            <div><input className="text-box" placeholder="___________________________________________________________________________" type="text" name="name" required/></div>     
           </label>
           <label>
             Email::
-            <div><input className="text-box"  type="email" name="email" required/></div>     
+            <div><input className="text-box" placeholder="___________________________________________________________________________" type="email" name="email" required/></div>     
           </label>
           <label>
             Text Message::
-            <div><textarea className="text-area" name="textarea" rows="4" cols="30" required/></div>     
+            <div><textarea className="text-area" placeholder="___________________________________________________________________________"name="textarea" rows="4" cols="30" required/></div>     
           </label>
           <div><input className="button" type="submit" value="Submit" /></div>        
         </form>
