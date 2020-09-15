@@ -34,8 +34,8 @@
                     <SexyDropdown 
                         prop={"Resources"} 
                         links={
-                            props.admin ? [{to:"Calander",name:"Calander"},{to:"Forum",name:"Forum"},{to:"Admin",name:"Admin"}] :
-                            [{to:"Calander",name:"Calander"},{to:"Forum",name:"Forum"}] 
+                            props.admin ? [{to:"Calender",name:"Calender"},{to:"Forum",name:"Forum"},{to:"Admin",name:"Admin"}] :
+                            [{to:"Calender",name:"Calender"},{to:"Forum",name:"Forum"}] 
                         
                         }/>
                         

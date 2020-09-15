@@ -4,7 +4,7 @@ import { formatDate } from '@fullcalendar/react'
 import "../static/calanderPage.css"
 import SexyButton from "../components/Buttons/SexyButton"
 import SexyDropdown from "../components/Buttons/SexyDropdown"
-export default function CalanderPage() {
+export default function CalenderPage() {
 
     const [Events, setEvents] = useState([
       {
