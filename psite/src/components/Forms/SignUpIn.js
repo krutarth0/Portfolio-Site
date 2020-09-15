@@ -6,7 +6,7 @@ import {projectFirestore} from '../../database/firebase_config';
 import {Redirect} from 'react-router-dom'
 import '../../static/authentication.css';
 
-export default function SignUpIn() {
+export default function SignUpIn(props) {
 
     
     const [email, setEmail] = useState("")
@@ -20,6 +20,14 @@ export default function SignUpIn() {
     const handlePass = (e) =>{
         setPass(e.target.value)
     }
+    async function SetLocal(doc,user){
+        let promise = new Promise((resolve,reject)=>{
+            localStorage.setItem('isAdmin',doc.data().isAdmin);
+        })
+
+        let wait = await promise;
+        localStorage.setItem("user", JSON.stringify(user.user));
+    } 
 
     const handleLogin = (e) => {
         auth().signInWithEmailAndPassword(email,pass).then((user)=>{
@@ -31,14 +39,17 @@ export default function SignUpIn() {
             .then( (snap)=>
             {
                 snap.forEach((doc)=>{
-                    localStorage.setItem('isAdmin',doc.data().isAdmin);
-                    localStorage.setItem("user", JSON.stringify(user.user));
+                    SetLocal(doc,user)
+                    props.setIsAdmin(doc.data().isAdmin)
                   })
+
+
             }
             )
         }).catch((error)=>{
             console.log(error);
         })
+   
     }
 
     const handleSignUp = (e) =>{
@@ -52,6 +63,7 @@ export default function SignUpIn() {
         }).catch((error)=>{
             console.log(error);
         })
+        // window.location.reload()
     }
 
 

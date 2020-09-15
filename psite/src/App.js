@@ -17,35 +17,6 @@ const  App = ()=> {
   const [isAuthenticated , setIsAuthenticated] = useState(localStorage.getItem('user') ? true : false)
   const [isAdmin, setIsAdmin] = useState(false)
 
-  // const getUser = () =>{
-  
-        
-  //   let user = JSON.parse(localStorage.getItem("user"));
-  //   let local_id  = user.uid;    
-  //   console.log("user",user);  
-  //   console.log(local_id);  
-  //   projectFirestore.collection('member_collection').where('uid','==',local_id).get()
-  //             .then(snapShot =>{
-  //               if(snapShot.empty){
-  //                 console.log("no matching string")
-  //                 return;
-  //               }       
-  
-  //               console.log(snapShot);
-  //               snapShot.forEach((doc)=>{
-                  
-  //                 console.log(doc.id,'=>',doc.data());
-  //                 localStorage.setItem('final_data',JSON.stringify(doc.data()));
-  //                 localStorage.setItem('isAdmin',doc.data().isAdmin);
-  //               })
-                              
-  //             })
-  //             .catch(err =>{
-  //               console.log(err); 
-  //             })
-  
-  // }
-
   const handleLogOut = () =>{
       window.location.reload()
       auth().signOut();
@@ -74,6 +45,12 @@ useEffect(()=>{
   })    
 },[])
 
+
+const setADMIN = (data)=>{
+  setIsAdmin(data)
+  window.location.reload()
+}
+  console.log("APP.JS" + isAdmin);
   return (
     <div className="App">
 
@@ -81,7 +58,7 @@ useEffect(()=>{
       <Switch>
 
           <Route exact path="/">
-            <Home signOut={handleLogOut} admin={isAdmin} />
+            <Home signOut={handleLogOut} admin={isAdmin}/>
           </Route>
 
           <Route path="/Calander">
@@ -93,7 +70,7 @@ useEffect(()=>{
           </Route> 
 
           <Route path="/SignInup">
-          {isAuthenticated ? <Redirect to="/" /> : <SignUpIn/>}
+          {isAuthenticated ? <Redirect to="/" /> : <SignUpIn setIsAdmin={setADMIN}/>}
           </Route> 
 
       </Switch>

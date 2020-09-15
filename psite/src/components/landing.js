@@ -9,13 +9,13 @@
     export default function Landing(props) {
 
     const [Yoffset, setYoffset] = useState(0);
-    const [isAdmin , setIsAdmin] = useState(false);
+    const [isAdmin , setIsAdmin] = useState(JSON.parse(localStorage.getItem("isAdmin")));
     var handleScroll = ()=> setYoffset(window.pageYOffset)
 
     useEffect(() => {
 
         window.addEventListener("scroll",handleScroll);
-        setIsAdmin(JSON.parse(localStorage.getItem("isAdmin")));
+        // setIsAdmin(JSON.parse(localStorage.getItem("isAdmin")));
         return () => window.removeEventListener("scroll",handleScroll);
 
     }, [])
@@ -26,7 +26,7 @@
             
 
             <div  className="jumbotron" >
-            {console.log(Yoffset)}
+            {/* {console.log(Yoffset)} */}
             {console.log(isAdmin)}
 
             <div className="list_div">
