@@ -17,7 +17,7 @@ export default function ContactUS() {
       e.target.reset()
   }
     return (
-    <div className= "main">
+    <div className= "main" id="contact_us">
 
       <div className="page-bg">
         <form className="page" onSubmit={sendEmail}>

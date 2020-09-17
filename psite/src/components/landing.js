@@ -5,6 +5,7 @@
     import Timeline from './Timeline'
     import SexyButton from './Buttons/SexyButton'
     import SexyDropdown from './Buttons/SexyDropdown'
+    import useFirestore from "../database/useFirestore"
     import {Link} from 'react-router-dom'
     
     // import ourStory from './Timeline';
@@ -14,6 +15,8 @@
 
     const [Yoffset, setYoffset] = useState(0);
     const [isAdmin , setIsAdmin] = useState(JSON.parse(localStorage.getItem("isAdmin")));
+    const timeline_docs  = useFirestore({collection:'Timeline',OrderBycreatedAt:true,order:"asc"})
+
     var handleScroll = ()=> setYoffset(window.pageYOffset)
 
     useEffect(() => {
@@ -50,9 +53,8 @@
                 </Link>
                 
 
-                <Link to ="timeline">
-                        <SexyButton  color={"black"} transparent={true} name={"Our Story"}/> 
-                </Link>
+               
+               {/* <SexyButton  color={"black"} link={"contact_us"} transparent={true} name={"Our Story"}/>   */}               
 
                 <Link to = '/calender'>
                     <SexyButton  color={"black"} transparent={true} name={"Calender"}/> 
@@ -112,7 +114,7 @@
 
                     <Ourteam></Ourteam>
                     
-                    <Timeline/>
+                    <Timeline docs={timeline_docs}/>
 
                     <ContactUS></ContactUS>
                     <div className="Footer">

@@ -1,39 +1,57 @@
 import { useState, useEffect } from 'react';
 import { projectFirestore } from './firebase_config';
 
-const useFirestore = (collection,single_doc) => {
+const useFirestore = ({collection,OrderBycreatedAt,order}) => {
   const [docs, setDocs] = useState([]);
-  const [doc, setDoc] = useState([]);
 
   useEffect(() => {
-    const unsub = projectFirestore.collection(collection)
-      .orderBy('createdAt', 'desc')
+    const unsubGET = OrderBycreatedAt && projectFirestore.collection(collection)
+      .orderBy('createdAt', order)
       .onSnapshot(snap => {
         let documents = [];
         snap.forEach(doc => {
           documents.push({...doc.data(), id: doc.id});
         });
+        
         setDocs(documents);
       });
-      if(single_doc){
-        const unsub_doc = projectFirestore.collection(collection).doc(single_doc)
-        .onSnapshot(snap => {
-          // let document = {};
-          // snap.forEach(doc => {
-          //   documents.push({...doc.data(), id: doc.id});
-          // });
-          console.log(snap.data());
-          // setDocs(snap.doc.data);
+
+      const unsubGETunorder = !OrderBycreatedAt && projectFirestore.collection(collection)
+      .onSnapshot(snap => {
+        let documents = [];
+        snap.forEach(doc => {
+          documents.push({...doc.data(), id: doc.id});
         });
-      }
+        
+        setDocs(documents);
+      });
 
-
-    return () => unsub();
+    return () => {
+      OrderBycreatedAt && unsubGET() 
+      !OrderBycreatedAt && unsubGETunorder()
+    }
     // this is a cleanup function that react will run when
     // a component using the hook unmounts
   }, [collection]);
 
-  return { docs,doc };
+
+  return {docs}
 }
 
-export default useFirestore;
+export function postFirestore({collection,data}) {
+
+  var _date =data.date.split("-")
+  var data_obj = {
+    createdAt:new Date(_date[0],parseInt(_date[1])-1,_date[2]),
+    date:data.date,
+    title:data.title,
+    info:data.info
+  }
+  projectFirestore.collection(collection).add({...data_obj})
+  setTimeout(() => {
+    window.location.reload()
+  }, 1500);
+
+}
+
+export default useFirestore;  

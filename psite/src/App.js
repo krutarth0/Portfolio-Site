@@ -12,7 +12,7 @@ import Timeline from './components/Timeline';
 
 
 
-const  App = ()=> {
+const  App = (props)=> {
 
   const [isAuthenticated , setIsAuthenticated] = useState(localStorage.getItem('user') ? true : false)
   const [isAdmin, setIsAdmin] = useState(false)
@@ -66,7 +66,7 @@ const setADMIN = (data)=>{
       <Switch>
 
           <Route exact path="/">
-            <Home signOut={handleLogOut} admin={isAdmin}/>
+            <Home signOut={handleLogOut} admin={isAdmin} ReloadCallback={ReloadCallback}/>
           </Route>
 
           <Route exact path="/Calender">
@@ -77,8 +77,8 @@ const setADMIN = (data)=>{
          {!isAuthenticated ? <Redirect to="/" /> : <Admin ReloadCallback={ReloadCallback}/>}
           </Route> 
 
-          <Route exact path="/SignUpIn/">
-          {isAuthenticated ? <Redirect to="/" /> : <SignUpIn setIsAdmin={setADMIN}/>}
+          <Route exact path="/signupin/">
+          {isAuthenticated ? <Redirect to="/" /> : <SignUpIn setIsAdmin={setADMIN} ReloadCallback={ReloadCallback}/>}
           </Route> 
 
 
