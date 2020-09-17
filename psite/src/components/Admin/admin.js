@@ -1,19 +1,22 @@
 import React from 'react'
 import "../../static/Admin/admin.css"
 import MeetTheTeamForm from "../Forms/AdminMeetTheTeamForm"
+import AdminTimelineForm from "../Forms/AdminTimelineForm"
 import OurTeamMember from "../OurTeam/OurTeamMember"
 import SexyButton from '../Buttons/SexyButton'
 import useFirestore from "../../database/useFirestore"
+import Timeline from "../Timeline"
 export default function Admin(props) {
-    const { docs } = useFirestore('ourTeam')
+    const { docs } = useFirestore({collection:'ourTeam',OrderBycreatedAt:true,order:"desc"})
+    const timeline_docs  = useFirestore({collection:'Timeline',OrderBycreatedAt:true,order:"asc"})
 
-    const { TEMP_doc } = useFirestore('ourTeam','TEMP');
-    console.log(docs);
+
+    console.log(timeline_docs)
     return (
         <div className="admin-dashboard">
                 <div className="admin-heading">
                     <div>
-                    <SexyButton link={"/"} name={"Home"} onClick={props.ReloadCallback}/>
+                    <SexyButton link={"/"} name={"Home"} />
                     </div>
                         <span className="admin-heading-tag">
                                 Dashboard
@@ -71,12 +74,12 @@ export default function Admin(props) {
                             <span>Our Story</span>
                         </div>
                         <div className="our-story-form">
-                            
+                                <AdminTimelineForm/>
                         </div>
                     </div>
 
-                    <div className="current-data">
-
+                    <div className="timeline-current-data">
+                        <Timeline docs={timeline_docs}/>
                     </div>
                 </div>
         </div>

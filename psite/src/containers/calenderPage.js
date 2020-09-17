@@ -86,7 +86,7 @@ export default function CalenderPage(props) {
             <div className="side-bar">
                 
               <div className="calander-navigation">
-                  <SexyButton name={"Home"} link={"/"} size={[5,5]} onClick={props.ReloadCallback}/>
+                  <SexyButton name={"Home"} link={"/"} size={[5,5]}/>
                   <SexyDropdown
                   prop={"Resources"} 
                   size={[7,5]} 
