@@ -116,7 +116,7 @@ export default function SignUpIn(props) {
     }
 
 
-    return (
+    return (    
     <div className="signUp_main">
 
     
@@ -149,7 +149,7 @@ export default function SignUpIn(props) {
         
         <div >
         <SexyButton name={"Sign Up"} onClick={handleSignUp} />
-        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }} > Have an account? <span className="option" style={{color:'blue' }}  onClick={changeOperation}>Click Here </span> to login.!</p>
+        <p style={{fontFamily:"'Cabin', sans-serif" , paddingTop:"3px"  }}   > Have an account? <span className="option" style={{color:'blue' }}  onClick={changeOperation}>Click Here </span> to login.!</p>
         </div>
 
         :

@@ -15,17 +15,23 @@ export default function SexyButton(props) {
         color : `${props.color ? props.color : null}`
       }
 
+      var onClick = props.onClick && {
+        onClick : `${props.onClick ? props.onClick : null}`
+      }
+
     return (
       <div className="button-holder">
 
        
           <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
-           class="sexy-button"
+          onClick={props.onClick}
+          class="sexy-button"
+          
            style={{
              ...size,...backgroundColor,...color     
           }}
           >{props.name}</a>
-        
+     
        
         
       </div>

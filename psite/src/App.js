@@ -7,7 +7,7 @@ import {Link,Switch,Route,Redirect} from 'react-router-dom'
 import './App.css';
 import {auth} from './database/firebase_config';
 import {projectFirestore} from './database/firebase_config';
-
+import Timeline from './components/Timeline';
 
 
 
@@ -19,11 +19,12 @@ const  App = ()=> {
   const [Reload, setReload] = useState(false)
 
   const handleLogOut = () =>{
+    console.log("handleing logout")
       window.location.reload()
       auth().signOut();
       localStorage.removeItem("isAdmin");
       localStorage.removeItem("user");
-      // localStorage.removeItem("final_data");
+      
   }
 
 useEffect(()=>{
@@ -35,7 +36,7 @@ useEffect(()=>{
         // console.log(user.email);
         // console.log(user.uid);
         // let id  = user.uid
-        localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("user", JSON.stringify(user));
         // localStorage.setItem("uid",id);
         // getUser();
         setIsAuthenticated(true);
@@ -76,9 +77,12 @@ const setADMIN = (data)=>{
          {!isAuthenticated ? <Redirect to="/" /> : <Admin ReloadCallback={ReloadCallback}/>}
           </Route> 
 
-          <Route exact path="/SignInup/">
+          <Route exact path="/SignUpIn/">
           {isAuthenticated ? <Redirect to="/" /> : <SignUpIn setIsAdmin={setADMIN}/>}
           </Route> 
+
+
+         
 
       </Switch>
     </div>

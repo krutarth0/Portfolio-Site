@@ -7,6 +7,9 @@
     import SexyDropdown from './Buttons/SexyDropdown'
     import {Link} from 'react-router-dom'
     
+    // import ourStory from './Timeline';
+    
+    
     export default function Landing(props) {
 
     const [Yoffset, setYoffset] = useState(0);
@@ -42,23 +45,29 @@
                     
            
                 <Link to = '/admin'>
-                    {localStorage.getItem('isAdmin') ? <SexyButton link={"SignInup"} transparent={true} color={"black"}  name={"Admin"}/>  : ""} 
+                    {localStorage.getItem('isAdmin') ? <SexyButton  transparent={true} color={"black"}  name={"Admin"}/>  : ""} 
                     
                 </Link>
                 
-                    <SexyButton link={"SignInup"} transparent={true} color={"black"}  name={"Our Story"}/> 
+
+                <Link to ="timeline">
+                        <SexyButton  color={"black"} transparent={true} name={"Our Story"}/> 
+                </Link>
 
                 <Link to = '/calender'>
-                    <SexyButton link={"SignInup"} color={"black"} transparent={true} name={"Calender"}/> 
+                    <SexyButton  color={"black"} transparent={true} name={"Calender"}/> 
                 </Link>
                     
                     
+                        
                     { localStorage.getItem("user") == null 
                     ?  
-                    <SexyButton color={"black"} transparent={true} link={"SignInup"} name={"Sign In/up"}/> 
+                        <SexyButton color={"black"} transparent={true} link={"signupin"} name={"Sign In/up"}/>      
                     : 
-                    <SexyButton color={"black"} transparent={true} name={"Logout"} onClick={props.signOut}/>
+                        <SexyButton color={"black"} transparent={true} name={"Logout"} onClick={props.signOut}/>
+                    
                     }
+
                 </div>  
             
             </div>

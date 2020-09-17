@@ -6,13 +6,13 @@ import '../static/timeline.css'
 export default function Timeline() {
 
     return (
-        <div className="Timeline-component">
+        <div className="Timeline-component" id="timeline">
             <section className="cd-horizontal-timeline">
-	<div className="timeline">
-		<div className="events-wrapper">
-			<div className="events">
-				<ol>
-					<li><a href="#0" data-date="16/01/2014" className="selected">16 Jan</a></li>
+		<div className="timeline">
+				<div className="events-wrapper">
+				<div className="events">
+					<ol>
+						<li><a href="#0" data-date="16/01/2014" className="selected">16 Jan</a></li>
 				{/*	<li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
 					<li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
 					<li><a href="#0" data-date="20/05/2014">20 May</a></li>
