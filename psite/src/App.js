@@ -16,6 +16,7 @@ const  App = ()=> {
 
   const [isAuthenticated , setIsAuthenticated] = useState(localStorage.getItem('user') ? true : false)
   const [isAdmin, setIsAdmin] = useState(false)
+  const [Reload, setReload] = useState(false)
 
   const handleLogOut = () =>{
       window.location.reload()
@@ -45,7 +46,13 @@ useEffect(()=>{
   })    
 },[])
 
-
+const ReloadCallback = ()=>{
+  // setReload(true)
+  setTimeout(() => {
+    window.location.reload()
+  }, 10);
+  
+}
 const setADMIN = (data)=>{
   setIsAdmin(data)
   window.location.reload()
@@ -62,11 +69,11 @@ const setADMIN = (data)=>{
           </Route>
 
           <Route exact path="/Calender">
-            <CalenderPage/>
+            <CalenderPage ReloadCallback={ReloadCallback}/>
           </Route>
 
          <Route exact path="/Admin/">
-         {!isAuthenticated ? <Redirect to="/" /> : <Admin/>}
+         {!isAuthenticated ? <Redirect to="/" /> : <Admin ReloadCallback={ReloadCallback}/>}
           </Route> 
 
           <Route exact path="/SignInup/">

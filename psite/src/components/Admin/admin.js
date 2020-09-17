@@ -4,7 +4,7 @@ import MeetTheTeamForm from "../Forms/AdminMeetTheTeamForm"
 import OurTeamMember from "../OurTeam/OurTeamMember"
 import SexyButton from '../Buttons/SexyButton'
 import useFirestore from "../../database/useFirestore"
-export default function Admin() {
+export default function Admin(props) {
     const { docs } = useFirestore('ourTeam')
 
     const { TEMP_doc } = useFirestore('ourTeam','TEMP');
@@ -13,7 +13,7 @@ export default function Admin() {
         <div className="admin-dashboard">
                 <div className="admin-heading">
                     <div>
-                    <SexyButton link={"/"} name={"Home"}/>
+                    <SexyButton link={"/"} name={"Home"} onClick={props.ReloadCallback}/>
                     </div>
                         <span className="admin-heading-tag">
                                 Dashboard

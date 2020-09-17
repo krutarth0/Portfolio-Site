@@ -21,12 +21,13 @@ export default function SexyButton(props) {
        
           <a href={props.link &&`#/${props.link.split(" ").join("").split("/").join("")}`} 
            class="sexy-button"
-           onClick={props.onClick}
            style={{
              ...size,...backgroundColor,...color     
           }}
           >{props.name}</a>
-
+        
+       
+        
       </div>
    
     )
