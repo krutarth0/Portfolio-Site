@@ -5,6 +5,7 @@
     import Timeline from './Timeline'
     import SexyButton from './Buttons/SexyButton'
     import SexyDropdown from './Buttons/SexyDropdown'
+    import {Link} from 'react-router-dom'
     
     export default function Landing(props) {
 
@@ -31,24 +32,35 @@
 
             <div className="list_div">
                 <div className="list">
-                    <SexyDropdown 
+            {/*}     <SexyDropdown 
                         prop={"Resources"} 
                         links={
                             props.admin ? [{to:"Calender",name:"Calender"},{to:"#",name:"Forum"},{to:"Admin",name:"Admin"}] :
                             [{to:"Calender",name:"Calender"},{to:"#",name:"Forum"}] 
                         
-                        }/>
-                        
+                        }/>  */}
+                    
+           
+                <Link to = '/admin'>
+                    {localStorage.getItem('isAdmin') ? <SexyButton link={"SignInup"} transparent={true} color={"black"}  name={"Admin"}/>  : ""} 
+                    
+                </Link>
+                
+                    <SexyButton link={"SignInup"} transparent={true} color={"black"}  name={"Our Story"}/> 
+
+                <Link to = '/calender'>
+                    <SexyButton link={"SignInup"} color={"black"} transparent={true} name={"Calender"}/> 
+                </Link>
+                    
                     
                     { localStorage.getItem("user") == null 
                     ?  
-                    <SexyButton link={"SignInup"} name={"Sign In/up"}/> 
+                    <SexyButton color={"black"} transparent={true} link={"SignInup"} name={"Sign In/up"}/> 
                     : 
-                    <SexyButton  name={"Logout"} onClick={props.signOut}/>
+                    <SexyButton color={"black"} transparent={true} name={"Logout"} onClick={props.signOut}/>
                     }
-                  
-
                 </div>  
+            
             </div>
         
             
