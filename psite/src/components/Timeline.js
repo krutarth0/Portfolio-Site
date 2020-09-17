@@ -13,7 +13,7 @@ useEffect(() => {
 	props.docs && 
 	setTimeout(() => {
 		loadStyle()
-	}, 2000);
+	}, 1500);
 	
 }, [])
 
@@ -89,7 +89,7 @@ console.log(props.docs);
 function loadStyle(){
 	// window.location.reload()
 	var timelines = $('.cd-horizontal-timeline'),
-			eventsMinDistance = 60;
+			eventsMinDistance = 40;
 	
 		(timelines.length > 0) && initTimeline(timelines);
 	

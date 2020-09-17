@@ -1,5 +1,5 @@
 import React from 'react';
-import '../static/contactUs.css';
+import '../static/contactUS.css';
 import emailjs from 'emailjs-com';
 
 
